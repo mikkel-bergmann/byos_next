@@ -127,9 +127,11 @@ export default function Weather({
 							</div>
 						))}
 					</div>
-					<div className="w-full flex flex-row justify-between items-center text-2xl text-white p-2 rounded-xl bg-gray-500">
-						<div>{suggestion || location}</div>
-						<div className="text-lg">
+					<div className="w-full flex flex-row justify-between items-center text-white p-3 rounded-xl bg-black">
+						<div className="font-blockKie text-3xl" style={{ paddingLeft: 12 }}>
+							{suggestion || location}
+						</div>
+						<div className="font-inter text-base">
 							{location}
 							{lastUpdated ? ` · ${lastUpdated}` : ""}
 						</div>
