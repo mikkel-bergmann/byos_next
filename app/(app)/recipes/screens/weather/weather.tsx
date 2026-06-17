@@ -31,6 +31,7 @@ interface WeatherProps {
 	sunrise?: string;
 	latitude?: number;
 	longitude?: number;
+	suggestion?: string;
 	width?: number;
 	height?: number;
 }
@@ -48,6 +49,7 @@ export default function Weather({
 	pressure = "Loading...",
 	sunset = "Loading...",
 	sunrise = "Loading...",
+	suggestion = "",
 	width = 800,
 	height = 480,
 }: WeatherProps) {
@@ -125,9 +127,12 @@ export default function Weather({
 							</div>
 						))}
 					</div>
-					<div className="w-full flex flex-col sm:flex-row  sm:justify-between items-center text-2xl text-white p-2 rounded-xl bg-gray-500">
-						<div>{location}</div>
-						<div>{lastUpdated && <span>Last updated: {lastUpdated}</span>}</div>
+					<div className="w-full flex flex-row justify-between items-center text-2xl text-white p-2 rounded-xl bg-gray-500">
+						<div>{suggestion || location}</div>
+						<div className="text-lg">
+							{location}
+							{lastUpdated ? ` · ${lastUpdated}` : ""}
+						</div>
 					</div>
 				</div>
 			</div>
